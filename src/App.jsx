@@ -1,28 +1,40 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import Innovation from './components/Innovation';
+import GrowthJourney from './components/GrowthJourney';
+import AboutContact from './components/AboutContact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen w-full bg-slate-950 text-white">
+      {/* Simple glass nav */}
+      <header className="fixed left-0 right-0 top-0 z-50 mx-auto mt-4 flex max-w-7xl items-center justify-between rounded-2xl border border-white/10 bg-white/10 px-4 py-2 backdrop-blur-md">
+        <a href="#top" className="text-sm font-semibold tracking-tight text-white/90">NDA • AI x Cyber</a>
+        <nav className="hidden gap-4 text-sm text-slate-200 sm:flex">
+          <a href="#innovation" className="hover:text-white">Portfolio</a>
+          <a href="#journey" className="hover:text-white">Journey</a>
+          <a href="#connect" className="hover:text-white">Connect</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <Hero />
+        <Innovation />
+        <section id="journey">
+          <GrowthJourney />
+        </section>
+        <AboutContact />
+      </main>
+
+      <footer className="border-t border-white/10 bg-slate-950/60 py-10 text-sm text-slate-400">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <p>
+            © {new Date().getFullYear()} Nathan Dava Arkananta — Building future-forward solutions at the intersection of AI, Cybersecurity, and GRC.
+          </p>
         </div>
-      </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
